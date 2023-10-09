@@ -21,11 +21,11 @@
 */
 package com.iemr.inventory.repo.indent;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import com.iemr.inventory.repo.BaseCrudRepository;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 
@@ -33,7 +33,7 @@ import com.iemr.inventory.data.indent.IndentIssue;
 
 @Repository
 @RestResource(exported = false)
-public interface IndentIssueRepo extends CrudRepository<IndentIssue, Long>{
+public interface IndentIssueRepo extends BaseCrudRepository<IndentIssue, Long>{
 
 	@Transactional
 	@Modifying

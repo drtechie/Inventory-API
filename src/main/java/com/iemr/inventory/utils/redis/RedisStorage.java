@@ -30,7 +30,7 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.core.types.Expiration;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("redisStorage")
 public class RedisStorage {
 	@Autowired
 	private LettuceConnectionFactory connection;

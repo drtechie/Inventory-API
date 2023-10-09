@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import com.iemr.inventory.repo.BaseCrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
@@ -38,7 +38,7 @@ import com.iemr.inventory.data.report.PatientIssueExitReport;
 
 @Repository
 @RestResource(exported = false)
-public interface ItemStockReportRepo extends CrudRepository<ItemStockEntryReport, Long> {
+public interface ItemStockReportRepo extends BaseCrudRepository<ItemStockEntryReport, Long> {
 
 	@Query("Select entryReport from ItemStockEntryReport entryReport "
 			+ "where entryReport.createdDate >= :startDate and entryReport.createdDate <= :endDate")

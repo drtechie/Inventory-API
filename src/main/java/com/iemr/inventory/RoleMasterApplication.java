@@ -29,6 +29,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.iemr.inventory.utils.IEMRApplBeans;
 import com.iemr.inventory.utils.config.ConfigProperties;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableCaching(proxyTargetClass = true)
@@ -38,7 +39,7 @@ public class RoleMasterApplication {
 		SpringApplication.run(roleMasterApplication, args);
 	}
 
-	@Bean
+/*	@Bean*/
 	public ConfigProperties configProperties() {
 		return new ConfigProperties();
 	}

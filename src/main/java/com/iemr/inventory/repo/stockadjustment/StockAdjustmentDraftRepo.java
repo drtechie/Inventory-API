@@ -24,20 +24,20 @@ package com.iemr.inventory.repo.stockadjustment;
 import java.sql.Timestamp;
 import java.util.List;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 
 import com.iemr.inventory.data.stockadjustment.StockAdjustmentDraft;
+import com.iemr.inventory.repo.BaseCrudRepository;
 
 @Repository
 @RestResource(exported = false)
-public interface StockAdjustmentDraftRepo extends CrudRepository<StockAdjustmentDraft, Long> {
+public interface StockAdjustmentDraftRepo extends BaseCrudRepository<StockAdjustmentDraft, Long> {
 
 	List<StockAdjustmentDraft> findByIsCompletedAndFacilityIDAndCreatedDateBetweenOrderByCreatedDateDesc(Boolean com,Integer facilityID,
 			Timestamp fromDate, Timestamp toDate);

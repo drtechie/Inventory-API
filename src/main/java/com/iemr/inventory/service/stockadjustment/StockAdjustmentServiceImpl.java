@@ -104,7 +104,7 @@ public class StockAdjustmentServiceImpl implements StockAdjustmentService {
 			action.setStockAdjustmentDraftID(stockdraftid);
 
 		});
-		itemdraft = (List<StockAdjustmentItemDraft>) stockAdjustmentItemDraftRepo.save(itemdraft);
+		itemdraft = (List<StockAdjustmentItemDraft>) stockAdjustmentItemDraftRepo.saveAll(itemdraft);
 		stockdraft.setStockAdjustmentItemDraft(itemdraft);
 		return stockdraft;
 	}
@@ -186,7 +186,7 @@ public class StockAdjustmentServiceImpl implements StockAdjustmentService {
 
 		});
 
-		stockAdjustmentItemRepo.save(sd);
+		stockAdjustmentItemRepo.saveAll(sd);
 		stockAdjustmentItemRepo.updateVanSerialNo();
 		stockAdjustment.setStockAdjustmentItem(sd);
 		if (stockAdjustment.getStockAdjustmentDraftID() != null) {

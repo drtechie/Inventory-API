@@ -142,7 +142,7 @@ public class IndentServiceImpl implements IndentService{
 			indentOrder.setFromFacilityID(indentCreated.getFromFacilityID());
 		});
 		
-		indentCreated.setIndentOrder((List<IndentOrder>) indentOrderRepo.save(indent.getIndentOrder()));
+		indentCreated.setIndentOrder((List<IndentOrder>) indentOrderRepo.saveAll(indent.getIndentOrder()));
 		
 		indentOrderRepo.updateVanSerialNo();
 		
@@ -310,7 +310,7 @@ public class IndentServiceImpl implements IndentService{
 				itemStockList.add(stockEntry);
 			}
 		}
-		itemStockEntryRepo.save(itemStockList);
+		itemStockEntryRepo.saveAll(itemStockList);
 		itemStockEntryRepo.updateItemStockEntryVanSerialNo();
 		logger.info("receiveIndent - End");
 		return "Received successfully";
@@ -345,7 +345,7 @@ public class IndentServiceImpl implements IndentService{
 			}
 		});
 		
-		indentCreated.setIndentOrder((List<IndentOrder>) indentOrderRepo.save(indent.getIndentOrder()));
+		indentCreated.setIndentOrder((List<IndentOrder>) indentOrderRepo.saveAll(indent.getIndentOrder()));
 		
 		logger.info("Updating Indent - End");
 		return "Updated successfully";

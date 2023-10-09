@@ -26,7 +26,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import com.iemr.inventory.repo.BaseCrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
@@ -36,7 +36,7 @@ import com.iemr.inventory.data.stockExit.T_StockTransfer;
 
 @Repository
 @RestResource(exported = false)
-public interface StockTransferRepo  extends  CrudRepository<T_StockTransfer,Long>{
+public interface StockTransferRepo  extends BaseCrudRepository<T_StockTransfer,Long>{
 	
 	
 	List<T_StockTransfer> findByCreatedDateBetweenAndTransferFromFacilityIDOrCreatedDateBetweenAndTransferToFacilityIDOrderByCreatedDateDesc(Timestamp fromDate,Timestamp toDate,Integer fromfacilityID,Timestamp fromDate1,Timestamp toDate1,Integer tofacilityID);

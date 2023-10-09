@@ -23,11 +23,11 @@ package com.iemr.inventory.repo.indent;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import com.iemr.inventory.repo.BaseCrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
@@ -38,7 +38,7 @@ import com.iemr.inventory.data.indent.IndentOrder;
 
 @Repository
 @RestResource(exported = false)
-public interface IndentOrderRepo extends CrudRepository<IndentOrder, Long>{
+public interface IndentOrderRepo extends BaseCrudRepository<IndentOrder, Long>{
 
 	@Query("Select indent from Indent indent "
 			+ "where indent.fromFacilityID = :facilityID order by indent.createdDate desc")

@@ -25,11 +25,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import com.iemr.inventory.repo.BaseCrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
@@ -38,7 +38,7 @@ import com.iemr.inventory.data.stockentry.ItemStockEntry;
 
 @Repository
 @RestResource(exported = false)
-public interface ItemStockEntryRepo extends CrudRepository<ItemStockEntry, Long> {
+public interface ItemStockEntryRepo extends BaseCrudRepository<ItemStockEntry, Long> {
 
 	@Query("SELECT ise.facilityID,ise.itemID,itm.itemName,sum(ise.quantityInHand) "
 			+ "from ItemStockEntry ise join ise.item itm where ise.itemID in (:itemID) and ise.facilityID=:storeID "

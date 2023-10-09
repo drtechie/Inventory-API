@@ -55,17 +55,14 @@ public class IEMRApplBeans {
 		return mailSender;
 	}
 
-	@Bean
 	public ConfigProperties configProperties() {
 		return new ConfigProperties();
 	}
 
-	@Bean
 	public SessionObject sessionObject() {
 		return new SessionObject();
 	}
 
-	@Bean
 	public RedisStorage redisStorage() {
 		return new RedisStorage();
 	}

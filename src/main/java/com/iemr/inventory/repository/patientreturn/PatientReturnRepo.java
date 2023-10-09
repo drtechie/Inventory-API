@@ -25,11 +25,11 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import com.iemr.inventory.repo.BaseCrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
@@ -39,7 +39,7 @@ import com.iemr.inventory.data.stockExit.T_PatientIssue;
 
 @Repository
 @RestResource(exported = false)
-public interface PatientReturnRepo extends CrudRepository<T_PatientIssue, Integer>{ 
+public interface PatientReturnRepo extends BaseCrudRepository<T_PatientIssue, Integer>{ 
 
 	@Query(value ="SELECT patientIssue.BeneficiaryRegID, patientIssue.FacilityID, item.ItemID, item.ItemName "
 			+ "FROM t_patientissue patientIssue "

@@ -152,7 +152,7 @@ public class StockExitServiceImpl implements StockExitService {
 			action.setExitType(issueType);
 			action.setExitTypeID(issueID);
 		}
-		itemStockExitRepo.save(itemissueListUpdated);
+		itemStockExitRepo.saveAll(itemissueListUpdated);
 		itemStockExitRepo.updateVanSerialNo();
 		stockEntryService.updateStocks(itemissueListUpdated);
 		i = 1;

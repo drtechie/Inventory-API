@@ -90,7 +90,7 @@ public class StockEntryServiceImpl implements StockEntryService {
 			stock.setSyncFacilityID(physicalStockEntry.getFacilityID());
 		});
 
-		itemStockEntryRepo.save(physicalStockEntry.getItemStockEntry());
+		itemStockEntryRepo.saveAll(physicalStockEntry.getItemStockEntry());
 
 		physicalStockEntryRepo.updatePhysicalStockEntryVanSerialNo();
 		itemStockEntryRepo.updateItemStockEntryVanSerialNo();
@@ -281,7 +281,7 @@ public class StockEntryServiceImpl implements StockEntryService {
 			itemStockEntryup.setVanID(toVanID);
 			itemStockEntryupList.add(itemStockEntryup);
 		}
-		itemStockEntryRepo.save(itemStockEntryupList);
+		itemStockEntryRepo.saveAll(itemStockEntryupList);
 		itemStockEntryRepo.updateItemStockEntryVanSerialNo();
 		return (List<ItemStockEntry>) itemStockEntryupList;
 	}
